@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elegance in Green 502 – Landscaping Service INC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────
+   ROOT & RESET
+───────────────────────────────────────────── */
+:root {
+  --deep:    #0f2210;
+  --forest:  #1e4023;
+  --moss:    #2d6b35;
+  --sage:    #5a9460;
+  --mint:    #aad4a2;
+  --cream:   #f5f1e8;
+  --parchment: #ede8dc;
+  --gold:    #b8963e;
+  --gold-lt: #d4b668;
+  --white:   #ffffff;
+  --charcoal:#1a1a1a;
+  --muted:   #5c6b5d;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--charcoal); overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ─────────────────────────────────────────────
+   UTILITY
+───────────────────────────────────────────── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+.section-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.section-label::before {
+  content: ''; display: inline-block;
+  width: 36px; height: 1px; background: var(--gold);
+}
+.serif { font-family: 'Cormorant Garamond', serif; }
+
+/* ─────────────────────────────────────────────
+   NAV
+───────────────────────────────────────────── */
+#navbar {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 999;
+  padding: 1.2rem 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
+}
+#navbar.scrolled {
+  background: rgba(15,34,16,0.96);
+  backdrop-filter: blur(16px);
+  padding: 0.85rem 5%;
+  box-shadow: 0 2px 30px rgba(0,0,0,0.3);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--white);
+  line-height: 1.1;
+}
+.nav-logo .logo-main { font-size: 1.45rem; font-weight: 600; letter-spacing: 0.06em; }
+.nav-logo .logo-sub  { font-size: 0.6rem; font-weight: 300; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-lt); }
+
+.nav-links {
+  display: flex; gap: 2.2rem; list-style: none;
+}
+.nav-links a {
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(255,255,255,0.85);
+  position: relative; transition: color 0.25s;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 1px; background: var(--gold);
+  transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--gold-lt); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  background: var(--gold); color: var(--deep) !important;
+  padding: 0.55rem 1.3rem; border-radius: 2px;
+  font-weight: 600 !important; letter-spacing: 0.08em !important;
+  transition: background 0.25s, transform 0.2s !important;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: var(--gold-lt) !important; transform: translateY(-1px) !important; }
+
+/* Hamburger */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: all 0.3s; }
+
+/* Mobile nav */
+.mobile-nav {
+  display: none; position: fixed; top: 0; left: 0;
+  width: 100%; height: 100vh; background: var(--deep);
+  flex-direction: column; align-items: center; justify-content: center;
+  gap: 2.5rem; z-index: 998;
+  opacity: 0; transform: translateY(-20px); transition: all 0.4s;
+}
+.mobile-nav.open { display: flex; opacity: 1; transform: translateY(0); }
+.mobile-nav a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem; color: var(--white); font-weight: 300;
+  letter-spacing: 0.08em; transition: color 0.2s;
+}
+.mobile-nav a:hover { color: var(--gold-lt); }
+.close-btn {
+  position: absolute; top: 1.5rem; right: 5%;
+  font-size: 2rem; color: var(--white); cursor: pointer;
+  line-height: 1;
+}
+
+/* ─────────────────────────────────────────────
+   HERO
+───────────────────────────────────────────── */
+#hero {
+  position: relative; height: 100vh; min-height: 620px;
+  display: flex; align-items: center; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    linear-gradient(135deg, rgba(10,25,11,0.82) 0%, rgba(30,64,35,0.55) 60%, rgba(10,25,11,0.75) 100%),
+    url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80') center/cover no-repeat;
+}
+/* Decorative SVG leaf overlay */
+.hero-leaf {
+  position: absolute; right: -60px; bottom: -60px;
+  width: 55vw; max-width: 700px; opacity: 0.06; z-index: 1;
+  pointer-events: none;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 780px; padding: 0 5%;
+  animation: fadeUp 1s ease both;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: rgba(184,150,62,0.18); border: 1px solid rgba(184,150,62,0.4);
+  color: var(--gold-lt); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 0.4rem 1rem; border-radius: 2px; margin-bottom: 1.8rem;
+  animation: fadeUp 1s 0.1s ease both;
+}
+.hero-badge::before { content: '✦'; font-size: 0.6rem; }
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6.5vw, 6rem);
+  font-weight: 600; color: var(--white);
+  line-height: 1.05; letter-spacing: 0.02em;
+  margin-bottom: 1.4rem;
+  animation: fadeUp 1s 0.2s ease both;
+}
+.hero-title em { color: var(--gold-lt); font-style: italic; }
+.hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.2rem); font-weight: 300;
+  color: rgba(255,255,255,0.8); line-height: 1.7;
+  max-width: 540px; margin-bottom: 2.8rem;
+  animation: fadeUp 1s 0.35s ease both;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 1s 0.5s ease both; }
+.btn-primary {
+  background: var(--gold); color: var(--deep);
+  padding: 0.95rem 2.2rem; border-radius: 2px;
+  font-weight: 600; font-size: 0.82rem; letter-spacing: 0.12em;
+  text-transform: uppercase; transition: all 0.3s;
+  box-shadow: 0 4px 24px rgba(184,150,62,0.4);
+}
+.btn-primary:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(184,150,62,0.5); }
+.btn-outline {
+  border: 1.5px solid rgba(255,255,255,0.5); color: var(--white);
+  padding: 0.95rem 2.2rem; border-radius: 2px;
+  font-weight: 500; font-size: 0.82rem; letter-spacing: 0.12em;
+  text-transform: uppercase; transition: all 0.3s;
+}
+.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+.hero-scroll {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  color: rgba(255,255,255,0.55); font-size: 0.65rem; letter-spacing: 0.18em;
+  text-transform: uppercase; z-index: 2; animation: fadeUp 1s 0.7s ease both;
+}
+.scroll-line {
+  width: 1px; height: 40px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4));
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────
+   STATS BAR
+───────────────────────────────────────────── */
+#stats {
+  background: var(--forest);
+  padding: 2.2rem 5%;
+}
+.stats-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 1rem; text-align: center;
+}
+.stat-item { padding: 1rem; border-right: 1px solid rgba(255,255,255,0.1); }
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem; font-weight: 700; color: var(--gold-lt);
+  line-height: 1;
+}
+.stat-label { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.12em; color: rgba(255,255,255,0.6); text-transform: uppercase; margin-top: 0.3rem; }
+
+/* ─────────────────────────────────────────────
+   ABOUT
+───────────────────────────────────────────── */
+#about {
+  padding: 7rem 5%;
+  background: var(--cream);
+}
+.about-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+}
+.about-imagery { position: relative; }
+.about-main-img {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px;
+  box-shadow: 20px 20px 60px rgba(0,0,0,0.15);
+  background: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80') center/cover;
+}
+.about-accent-img {
+  position: absolute; bottom: -2.5rem; right: -2.5rem;
+  width: 55%; aspect-ratio: 1; object-fit: cover; border-radius: 4px;
+  border: 6px solid var(--cream);
+  box-shadow: 10px 10px 40px rgba(0,0,0,0.12);
+  background: url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&q=80') center/cover;
+}
+.about-badge-img {
+  position: absolute; top: -2rem; left: -2rem;
+  width: 90px; height: 90px; border-radius: 50%;
+  background: var(--gold); display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 0.8rem;
+  box-shadow: 0 8px 30px rgba(184,150,62,0.4);
+}
+.about-badge-img span { font-family: 'Cormorant Garamond', serif; font-size: 0.75rem; font-weight: 600; color: var(--deep); line-height: 1.2; }
+.about-content { padding-bottom: 2.5rem; }
+.about-content .section-label { margin-bottom: 1.2rem; }
+.about-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 600; line-height: 1.2; color: var(--deep);
+  margin-bottom: 1.5rem;
+}
+.about-content h2 em { color: var(--moss); font-style: italic; }
+.about-content p { font-size: 1rem; font-weight: 300; line-height: 1.85; color: var(--muted); margin-bottom: 1.2rem; }
+.about-features { margin: 2rem 0; display: flex; flex-direction: column; gap: 1rem; }
+.about-feat {
+  display: flex; align-items: flex-start; gap: 1rem;
+}
+.feat-icon {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(45,107,53,0.1); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+}
+.feat-text strong { display: block; font-size: 0.88rem; font-weight: 600; color: var(--deep); }
+.feat-text span   { font-size: 0.82rem; color: var(--muted); }
+
+/* ─────────────────────────────────────────────
+   SERVICES
+───────────────────────────────────────────── */
+#services {
+  background: var(--deep);
+  padding: 7rem 5%;
+}
+.services-header {
+  max-width: 1200px; margin: 0 auto 4rem;
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap;
+}
+.services-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 600; color: var(--white); line-height: 1.2;
+}
+.services-header h2 em { color: var(--gold-lt); font-style: italic; }
+.services-header p { font-size: 0.95rem; font-weight: 300; color: rgba(255,255,255,0.6); max-width: 360px; line-height: 1.7; }
+
+.services-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;
+}
+.service-card {
+  position: relative; overflow: hidden;
+  border-radius: 6px;
+  height: 280px;
+  cursor: default;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.service-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 16px 48px rgba(0,0,0,0.32); }
+.svc-photo {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transition: transform 0.6s ease;
+}
+.service-card:hover .svc-photo { transform: scale(1.08); }
+.svc-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(8,22,9,0.88) 0%, rgba(8,22,9,0.45) 55%, rgba(8,22,9,0.15) 100%);
+  transition: background 0.4s;
+}
+.service-card:hover .svc-overlay {
+  background: linear-gradient(to top, rgba(8,22,9,0.92) 0%, rgba(8,22,9,0.6) 55%, rgba(8,22,9,0.25) 100%);
+}
+.svc-content {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 1.5rem 1.6rem 1.6rem;
+  transform: translateY(0);
+  transition: transform 0.35s ease;
+}
+.svc-tag {
+  display: inline-block;
+  background: rgba(184,150,62,0.25); border: 1px solid rgba(184,150,62,0.5);
+  color: var(--gold-lt); font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 0.22rem 0.65rem; border-radius: 2px;
+  margin-bottom: 0.6rem;
+}
+.svc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; font-weight: 600; color: var(--white);
+  line-height: 1.25; margin-bottom: 0.55rem;
+}
+.svc-desc {
+  font-size: 0.78rem; color: rgba(255,255,255,0.72); line-height: 1.65;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.35s ease;
+  opacity: 0;
+}
+.service-card:hover .svc-desc { max-height: 80px; opacity: 1; }
+.svc-arrow {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  color: var(--gold-lt); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.7rem;
+  opacity: 0; transform: translateX(-8px);
+  transition: opacity 0.35s 0.05s ease, transform 0.35s 0.05s ease;
+}
+.svc-arrow::after { content: '→'; }
+.service-card:hover .svc-arrow { opacity: 1; transform: translateX(0); }
+
+/* ─────────────────────────────────────────────
+   WHY CHOOSE US — FULL-WIDTH BAND
+───────────────────────────────────────────── */
+#why {
+  background: linear-gradient(135deg, var(--deep) 0%, var(--forest) 100%);
+  padding: 7rem 5%;
+  position: relative; overflow: hidden;
+}
+#why::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 50%; height: 100%;
+  background: url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&q=80') center/cover;
+  opacity: 0.12;
+}
+.why-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+  position: relative; z-index: 1;
+}
+.why-text .section-label { margin-bottom: 1.2rem; }
+.why-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 600;
+  color: var(--white); line-height: 1.2; margin-bottom: 1.5rem;
+}
+.why-text h2 em { color: var(--gold-lt); font-style: italic; }
+.why-text p { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.85; margin-bottom: 2.5rem; }
+.why-pillars { display: flex; flex-direction: column; gap: 1.5rem; }
+.pillar {
+  display: flex; align-items: flex-start; gap: 1.2rem;
+  padding: 1.4rem 1.5rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px; transition: border-color 0.3s, background 0.3s;
+}
+.pillar:hover { border-color: rgba(184,150,62,0.4); background: rgba(184,150,62,0.05); }
+.pillar-icon {
+  font-size: 1.6rem; flex-shrink: 0;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: rgba(184,150,62,0.15); display: flex; align-items: center; justify-content: center;
+}
+.pillar-text strong { display: block; font-size: 0.92rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+.pillar-text span   { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+/* ─────────────────────────────────────────────
+   GALLERY
+───────────────────────────────────────────── */
+#gallery {
+  padding: 7rem 5%;
+  background: var(--cream);
+}
+.gallery-header { max-width: 1200px; margin: 0 auto 3.5rem; }
+.gallery-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: 600;
+  color: var(--deep); line-height: 1.2; margin-top: 1rem;
+}
+.gallery-header h2 em { color: var(--moss); font-style: italic; }
+
+.gallery-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 240px 240px;
+  gap: 12px;
+}
+.g-item {
+  overflow: hidden; border-radius: 4px; background: var(--parchment);
+  position: relative;
+}
+.g-item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
+.g-item:nth-child(2) { grid-column: span 4; }
+.g-item:nth-child(3) { grid-column: span 3; }
+.g-item:nth-child(4) { grid-column: span 3; }
+.g-item:nth-child(5) { grid-column: span 4; }
+.g-item img, .g-item .g-bg {
+  width: 100%; height: 100%;
+  object-fit: cover; transition: transform 0.6s ease;
+}
+.g-bg { background-size: cover; background-position: center; }
+.g-item:hover .g-bg,
+.g-item:hover img { transform: scale(1.07); }
+.g-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(15,34,16,0.7) 0%, transparent 50%);
+  opacity: 0; transition: opacity 0.4s;
+  display: flex; align-items: flex-end; padding: 1.5rem;
+}
+.g-item:hover .g-overlay { opacity: 1; }
+.g-label { font-size: 0.82rem; font-weight: 500; color: var(--white); letter-spacing: 0.08em; }
+
+/* ─────────────────────────────────────────────
+   HOURS BANNER
+───────────────────────────────────────────── */
+#hours {
+  background: var(--forest);
+  padding: 4.5rem 5%;
+}
+.hours-inner { max-width: 1200px; margin: 0 auto; }
+.hours-inner h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 600;
+  color: var(--white); text-align: center; margin: 1rem 0 2.5rem;
+}
+.hours-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.8rem;
+}
+.hour-item {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px; padding: 1rem 0.6rem;
+  text-align: center; transition: background 0.25s, border-color 0.25s;
+}
+.hour-item.special { border-color: rgba(184,150,62,0.4); background: rgba(184,150,62,0.08); }
+.hour-item:hover { background: rgba(255,255,255,0.1); }
+.day-name { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 0.5rem; }
+.day-time { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--white); font-weight: 400; }
+
+/* ─────────────────────────────────────────────
+   CONTACT
+───────────────────────────────────────────── */
+#contact {
+  padding: 7rem 5%;
+  background: var(--cream);
+}
+.contact-header { max-width: 1200px; margin: 0 auto 4rem; }
+.contact-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: 600;
+  color: var(--deep); line-height: 1.2; margin-top: 1rem;
+}
+.contact-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start;
+}
+.contact-info { display: flex; flex-direction: column; gap: 2rem; }
+.cinfo-card {
+  background: var(--parchment);
+  border-radius: 4px; padding: 1.8rem 2rem;
+  border-left: 3px solid var(--gold);
+}
+.cinfo-card h4 {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.75rem;
+}
+.cinfo-card p, .cinfo-card a {
+  font-size: 1rem; color: var(--deep); font-weight: 400; line-height: 1.6;
+}
+.cinfo-card a:hover { color: var(--moss); }
+
+.contact-form-wrap {
+  background: var(--white);
+  border-radius: 6px; padding: 3rem;
+  box-shadow: 0 8px 50px rgba(0,0,0,0.08);
+}
+.contact-form-wrap h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem; font-weight: 600; color: var(--deep); margin-bottom: 1.8rem;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+.form-group label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  border: 1.5px solid rgba(0,0,0,0.1);
+  border-radius: 3px; padding: 0.82rem 1rem;
+  font-family: 'Jost', sans-serif; font-size: 0.92rem; color: var(--charcoal);
+  background: var(--cream); outline: none; transition: border-color 0.25s;
+  width: 100%;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--moss); background: var(--white); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-submit {
+  width: 100%;
+  background: var(--forest); color: var(--white);
+  border: none; padding: 1.05rem; border-radius: 3px;
+  font-family: 'Jost', sans-serif; font-size: 0.84rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: 0.5rem;
+}
+.form-submit:hover { background: var(--moss); transform: translateY(-2px); }
+.form-note { font-size: 0.72rem; color: var(--muted); margin-top: 1rem; text-align: center; }
+
+/* MAP */
+.map-wrap {
+  max-width: 1200px; margin: 4rem auto 0;
+  border-radius: 6px; overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+}
+.map-wrap iframe { display: block; width: 100%; height: 380px; border: none; }
+
+/* ─────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────── */
+footer {
+  background: var(--deep);
+  padding: 4.5rem 5% 2rem;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+}
+.footer-top {
+  display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand .logo-main { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--white); }
+.footer-brand .logo-sub   { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 1rem; }
+.footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 300px; }
+.footer-col h5 {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.2rem;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+.footer-col ul li a {
+  font-size: 0.85rem; color: rgba(255,255,255,0.55); transition: color 0.25s;
+}
+.footer-col ul li a:hover { color: var(--gold-lt); }
+.footer-col ul li { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto; padding-top: 1.8rem;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.footer-bottom p { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+.footer-bottom a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+.footer-bottom a:hover { color: var(--gold-lt); }
+.footer-badge {
+  display: flex; align-items: center; gap: 0.5rem;
+  background: rgba(184,150,62,0.12); border: 1px solid rgba(184,150,62,0.25);
+  padding: 0.4rem 0.9rem; border-radius: 20px;
+  font-size: 0.68rem; color: var(--gold-lt); letter-spacing: 0.1em;
+}
+
+/* ─────────────────────────────────────────────
+   ANIMATIONS
+───────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50%       { opacity: 1;   transform: scaleY(1.15); }
+}
+
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+
+  .stats-inner { grid-template-columns: repeat(2,1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; }
+
+  .about-grid  { grid-template-columns: 1fr; gap: 3rem; }
+  .about-accent-img, .about-badge-img { display: none; }
+  .about-main-img { aspect-ratio: 16/9; }
+
+  .why-inner { grid-template-columns: 1fr; gap: 3rem; }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .g-item:nth-child(1) { grid-column: span 2; }
+  .g-item:nth-child(n+2) { grid-column: span 1; }
+
+  .hours-grid { grid-template-columns: repeat(4,1fr); }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .form-row { grid-template-columns: 1fr; }
+
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+}
+@media (max-width: 600px) {
+  .stats-inner { grid-template-columns: repeat(2,1fr); }
+  .hours-grid { grid-template-columns: repeat(2,1fr); }
+  .footer-top { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .g-item:nth-child(1), .g-item:nth-child(n+2) { grid-column: span 1; }
+  .hero-title { font-size: 2.5rem; }
+  .contact-form-wrap { padding: 2rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <div class="logo-main">Elegance in Green 502</div>
+    <div class="logo-sub">Landscaping Service INC</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#hours">Hours</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <span class="close-btn" onclick="toggleNav()">✕</span>
+  <a href="#about"    onclick="toggleNav()">About</a>
+  <a href="#services" onclick="toggleNav()">Services</a>
+  <a href="#gallery"  onclick="toggleNav()">Gallery</a>
+  <a href="#hours"    onclick="toggleNav()">Hours</a>
+  <a href="#contact"  onclick="toggleNav()">Contact</a>
+  <a href="#contact"  onclick="toggleNav()" style="color:var(--gold)">Get a Free Quote →</a>
+</div>
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <!-- Decorative leaf SVG -->
+  <svg class="hero-leaf" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M300 50 Q550 100 560 300 Q570 500 300 560 Q50 500 40 300 Q30 100 300 50Z" fill="white"/>
+    <line x1="300" y1="50" x2="300" y2="560" stroke="white" stroke-width="2"/>
+    <line x1="300" y1="200" x2="450" y2="150" stroke="white" stroke-width="1.5"/>
+    <line x1="300" y1="300" x2="500" y2="280" stroke="white" stroke-width="1.5"/>
+    <line x1="300" y1="400" x2="440" y2="420" stroke="white" stroke-width="1.5"/>
+    <line x1="300" y1="200" x2="150" y2="150" stroke="white" stroke-width="1.5"/>
+    <line x1="300" y1="300" x2="100" y2="280" stroke="white" stroke-width="1.5"/>
+    <line x1="300" y1="400" x2="160" y2="420" stroke="white" stroke-width="1.5"/>
+  </svg>
+
+  <div class="hero-content container">
+    <div class="hero-badge">Opa-Locka, FL · Serving South Florida</div>
+    <h1 class="hero-title">
+      Where Nature Meets <em>Artistry</em>
+    </h1>
+    <p class="hero-sub">
+      Full-service landscaping design, installation & maintenance for residential and commercial properties. We transform outdoor spaces into living masterpieces.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Request a Free Quote</a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     STATS BAR
+══════════════════════════════════════════ -->
+<div id="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Projects Completed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">26</div>
+      <div class="stat-label">Services Offered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Available Mon–Fri</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Client Satisfaction</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ABOUT
+══════════════════════════════════════════ -->
+<section id="about">
+  <div class="about-grid reveal">
+    <div class="about-imagery">
+      <div class="about-main-img"></div>
+      <div class="about-accent-img"></div>
+      <div class="about-badge-img">
+        <span>South Florida Experts</span>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-label">Our Story</div>
+      <h2>Crafting <em>Outdoor Elegance</em> One Yard at a Time</h2>
+      <p>
+        Elegance in Green 502 Landscaping Service INC was built on a simple belief: every outdoor space deserves to be beautiful, functional, and alive. Based in Opa-Locka, FL, we bring passion, craftsmanship, and deep horticultural knowledge to every project we touch.
+      </p>
+      <p>
+        From sweeping custom landscape designs to precision drainage solutions, our team approaches every property as a unique canvas — listening to your vision and turning it into a lush reality that lasts for years.
+      </p>
+      <div class="about-features">
+        <div class="about-feat">
+          <div class="feat-icon">🌿</div>
+          <div class="feat-text">
+            <strong>Design-First Approach</strong>
+            <span>Every project starts with a tailored consultation and detailed plan.</span>
+          </div>
+        </div>
+        <div class="about-feat">
+          <div class="feat-icon">🏡</div>
+          <div class="feat-text">
+            <strong>Residential & Commercial</strong>
+            <span>No project too big or small — we serve all property types.</span>
+          </div>
+        </div>
+        <div class="about-feat">
+          <div class="feat-icon">⏰</div>
+          <div class="feat-text">
+            <strong>Always Available</strong>
+            <span>Open 24 hours Mon–Fri to serve your landscaping needs anytime.</span>
+          </div>
+        </div>
+      </div>
+      <a href="#contact" class="btn-primary" style="display:inline-block;margin-top:0.5rem;">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SERVICES
+══════════════════════════════════════════ -->
+<section id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-label">What We Do</div>
+      <h2>Comprehensive <em>Landscaping</em><br>Services</h2>
+    </div>
+    <p>From initial design to ongoing maintenance, we handle every aspect of your outdoor environment with expertise and care.</p>
+  </div>
+
+  <div class="services-grid reveal">
+
+    <!-- 1. Backyard Landscaping -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Outdoor Living</div>
+        <div class="svc-name">Backyard Landscaping</div>
+        <div class="svc-desc">Transform your backyard into a private retreat with custom planting, hardscaping, and design.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 2. Custom Landscape Design -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Design</div>
+        <div class="svc-name">Custom Landscape Design</div>
+        <div class="svc-desc">Tailored landscape plans created to reflect your vision, lifestyle, and property's unique character.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 3. Desert Landscaping -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Eco-Friendly</div>
+        <div class="svc-name">Desert Landscaping</div>
+        <div class="svc-desc">Water-efficient, drought-tolerant designs that are stunning and environmentally responsible.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 4. Drainage Solutions -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Infrastructure</div>
+        <div class="svc-name">Drainage Solutions</div>
+        <div class="svc-desc">Expert yard drainage systems to protect your property from flooding and water damage.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 5. Driveway Landscaping -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Curb Appeal</div>
+        <div class="svc-name">Driveway Landscaping</div>
+        <div class="svc-desc">Stunning entranceways with stone borders, greenery, and lighting that make a lasting impression.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 6. Garden Decorating -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1459156212016-c812468e2115?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Aesthetics</div>
+        <div class="svc-name">Garden Decorating</div>
+        <div class="svc-desc">Artistic garden features including sculptures, planters, lighting, and seasonal plantings.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 7. Garden Design -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Design</div>
+        <div class="svc-name">Garden Design</div>
+        <div class="svc-desc">Thoughtfully composed gardens that bloom beautifully through every season of the year.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 8. Gardening Services -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Maintenance</div>
+        <div class="svc-name">Gardening Services</div>
+        <div class="svc-desc">Ongoing garden care including planting, pruning, fertilizing, and soil health management.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 9. Garden Landscaping -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Full Service</div>
+        <div class="svc-name">Garden Landscaping</div>
+        <div class="svc-desc">Full-scale garden landscaping integrating hardscape, softscape, and natural elements harmoniously.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 10. Grading & Resloping -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Groundwork</div>
+        <div class="svc-name">Grading & Resloping</div>
+        <div class="svc-desc">Proper land grading to improve drainage, stability, and overall usability of your yard.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 11. Grass Seeding -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Lawn</div>
+        <div class="svc-name">Grass Seeding</div>
+        <div class="svc-desc">Professional seeding services for thick, healthy, vibrant lawns suited to Florida's climate.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 12. Landscape Architecture -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Architecture</div>
+        <div class="svc-name">Landscape Architecture</div>
+        <div class="svc-desc">Professional architectural planning of large-scale outdoor environments with precision.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 13. Landscape Design Construction -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1574923228043-c7e1d5a37e01?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Construction</div>
+        <div class="svc-name">Landscape Design Construction</div>
+        <div class="svc-desc">End-to-end construction of designed landscapes — from concept drawings to completed installation.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 14. Landscape Installations -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1487530811015-780526c0d001?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Installation</div>
+        <div class="svc-name">Landscape Installations</div>
+        <div class="svc-desc">Expert installation of plants, trees, hardscapes, and irrigation systems across any property size.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 15. Lawn Care -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Maintenance</div>
+        <div class="svc-name">Lawn Care</div>
+        <div class="svc-desc">Regular mowing, edging, aeration, and fertilization to keep your lawn pristine year-round.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 16. Outdoor Step Construction -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1617369120004-4fc70312c5e6?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Hardscape</div>
+        <div class="svc-name">Outdoor Step Construction</div>
+        <div class="svc-desc">Custom stone and masonry steps blending beauty, durability, and safety for any outdoor space.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 17. Outdoor Water Feature Design -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Water Features</div>
+        <div class="svc-name">Outdoor Water Feature Design</div>
+        <div class="svc-desc">Fountains, waterfalls, and streams that add elegance and tranquility to your outdoor areas.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 18. Patio Design -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Outdoor Living</div>
+        <div class="svc-name">Patio Design</div>
+        <div class="svc-desc">Beautiful, functional patio spaces crafted for entertaining, relaxing, and enjoying the outdoors.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 19. Pond Maintenance -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1519331379826-f10be5486c6f?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Water Features</div>
+        <div class="svc-name">Pond Maintenance</div>
+        <div class="svc-desc">Complete pond care including cleaning, algae control, water quality, and aquatic planting.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 20. Retaining Wall Design -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Hardscape</div>
+        <div class="svc-name">Retaining Wall Design</div>
+        <div class="svc-desc">Structural and decorative retaining walls that prevent erosion and define your landscape beautifully.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 21. Sod Installation -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Lawn</div>
+        <div class="svc-name">Sod Installation</div>
+        <div class="svc-desc">Instant lush lawns with professional sod selection, prep, installation, and care guidance.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 22. Stone Masonry -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Masonry</div>
+        <div class="svc-name">Stone Masonry</div>
+        <div class="svc-desc">Artisan stone work for walls, pathways, patios, and accent features with lasting craftsmanship.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 23. Turf Management -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700&q=80&sat=-30');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Lawn</div>
+        <div class="svc-name">Turf Management</div>
+        <div class="svc-desc">Specialized turf programs for sports fields, golf courses, and premium residential lawns.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 24. Walkway Landscaping -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=700&q=80&flip=h');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Pathways</div>
+        <div class="svc-name">Walkway Landscaping</div>
+        <div class="svc-desc">Elegant pathways designed with natural stone, brick, or pavers to guide and delight visitors.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 25. Yard Designs -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1590650213165-c1fef80648c4?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Full Service</div>
+        <div class="svc-name">Yard Designs</div>
+        <div class="svc-desc">Complete front and back yard redesigns that maximize curb appeal, function, and personal style.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+    <!-- 26. Yard Drainage -->
+    <div class="service-card">
+      <div class="svc-photo" style="background-image:url('https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=700&q=80');"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-tag">Infrastructure</div>
+        <div class="svc-name">Yard Drainage</div>
+        <div class="svc-desc">Comprehensive drainage planning and installation to protect your yard from water pooling and damage.</div>
+        <div class="svc-arrow">Request a Quote</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     WHY CHOOSE US
+══════════════════════════════════════════ -->
+<section id="why">
+  <div class="why-inner">
+    <div class="why-text reveal">
+      <div class="section-label" style="--gold: #b8963e; color: var(--gold);">Why Choose Us</div>
+      <h2>The Standard of <em>Outdoor Excellence</em> in South Florida</h2>
+      <p>We don't just maintain landscapes — we create experiences. Every project receives our full commitment to quality, creativity, and long-term client satisfaction.</p>
+      <a href="#contact" class="btn-primary">Start Your Project</a>
+    </div>
+    <div class="why-pillars reveal">
+      <div class="pillar">
+        <div class="pillar-icon">🎨</div>
+        <div class="pillar-text">
+          <strong>Design Expertise</strong>
+          <span>Our team combines artistic vision with deep horticultural knowledge for results that are both stunning and sustainable.</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🤝</div>
+        <div class="pillar-text">
+          <strong>Client-Centered Process</strong>
+          <span>We listen first. Every decision is guided by your goals, preferences, and the specific character of your property.</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">⚡</div>
+        <div class="pillar-text">
+          <strong>Reliable & Responsive</strong>
+          <span>Available 24 hours Mon–Fri, we respond quickly and deliver on time with clear communication throughout.</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🌍</div>
+        <div class="pillar-text">
+          <strong>Local Florida Knowledge</strong>
+          <span>Deep understanding of South Florida's soil, climate, and native plants gives your landscape a lasting advantage.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     GALLERY
+══════════════════════════════════════════ -->
+<section id="gallery">
+  <div class="gallery-header reveal">
+    <div class="section-label">Our Work</div>
+    <h2>A Portfolio of <em>Living Art</em></h2>
+  </div>
+
+  <div class="gallery-grid reveal">
+    <div class="g-item">
+      <div class="g-bg" style="background-image:url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80');height:100%;"></div>
+      <div class="g-overlay"><span class="g-label">Custom Garden Design</span></div>
+    </div>
+    <div class="g-item">
+      <div class="g-bg" style="background-image:url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=700&q=80');height:100%;"></div>
+      <div class="g-overlay"><span class="g-label">Lawn Care & Maintenance</span></div>
+    </div>
+    <div class="g-item">
+      <div class="g-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80');height:100%;"></div>
+      <div class="g-overlay"><span class="g-label">Patio & Hardscape</span></div>
+    </div>
+    <div class="g-item">
+      <div class="g-bg" style="background-image:url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=700&q=80');height:100%;"></div>
+      <div class="g-overlay"><span class="g-label">Water Features</span></div>
+    </div>
+    <div class="g-item">
+      <div class="g-bg" style="background-image:url('https://images.unsplash.com/photo-1574923228043-c7e1d5a37e01?w=700&q=80');height:100%;"></div>
+      <div class="g-overlay"><span class="g-label">Stone Masonry</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     HOURS
+══════════════════════════════════════════ -->
+<section id="hours">
+  <div class="hours-inner">
+    <div class="section-label" style="justify-content:center;margin-bottom:0.5rem;">Schedule</div>
+    <h2>Business Hours</h2>
+    <div class="hours-grid">
+      <div class="hour-item">
+        <div class="day-name">Mon</div>
+        <div class="day-time">Open 24 hrs</div>
+      </div>
+      <div class="hour-item">
+        <div class="day-name">Tue</div>
+        <div class="day-time">Open 24 hrs</div>
+      </div>
+      <div class="hour-item">
+        <div class="day-name">Wed</div>
+        <div class="day-time">Open 24 hrs</div>
+      </div>
+      <div class="hour-item">
+        <div class="day-name">Thu</div>
+        <div class="day-time">Open 24 hrs</div>
+      </div>
+      <div class="hour-item">
+        <div class="day-name">Fri</div>
+        <div class="day-time">Open 24 hrs</div>
+      </div>
+      <div class="hour-item special">
+        <div class="day-name">Sat</div>
+        <div class="day-time">12:30–2:30 AM</div>
+      </div>
+      <div class="hour-item">
+        <div class="day-name">Sun</div>
+        <div class="day-time">Open 24 hrs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════ -->
+<section id="contact">
+  <div class="contact-header reveal">
+    <div class="section-label">Get In Touch</div>
+    <h2>Let's Build Your <em>Dream Landscape</em></h2>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <div class="cinfo-card">
+        <h4>📍 Our Location</h4>
+        <p>2840 NW 135th St<br>Opa-Locka, FL 33054</p>
+      </div>
+      <div class="cinfo-card">
+        <h4>📞 Phone</h4>
+        <p><a href="tel:6452365545">(645) 236-5545</a></p>
+      </div>
+      <div class="cinfo-card">
+        <h4>⏰ Hours</h4>
+        <p>Mon – Fri: Open 24 Hours<br>Saturday: 12:30 AM – 2:30 AM<br>Sunday: Open 24 Hours</p>
+      </div>
+      <div class="cinfo-card">
+        <h4>🌎 Service Area</h4>
+        <p>Serving Opa-Locka, Miami-Dade County, and surrounding South Florida communities.</p>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap reveal">
+      <h3>Request a Free Quote</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="John">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="(305) 000-0000">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@email.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Service Interested In</label>
+        <select>
+          <option value="">— Select a Service —</option>
+          <option>Backyard Landscaping</option>
+          <option>Custom Landscape Design</option>
+          <option>Desert Landscaping</option>
+          <option>Drainage Solutions</option>
+          <option>Driveway Landscaping</option>
+          <option>Garden Design</option>
+          <option>Gardening Services</option>
+          <option>Grading & Resloping</option>
+          <option>Grass Seeding</option>
+          <option>Landscape Architecture</option>
+          <option>Lawn Care</option>
+          <option>Outdoor Step Construction</option>
+          <option>Outdoor Water Feature Design</option>
+          <option>Patio Design</option>
+          <option>Pond Maintenance</option>
+          <option>Retaining Wall Design</option>
+          <option>Sod Installation</option>
+          <option>Stone Masonry</option>
+          <option>Turf Management</option>
+          <option>Walkway Landscaping</option>
+          <option>Yard Designs</option>
+          <option>Yard Drainage</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell Us About Your Project</label>
+        <textarea placeholder="Describe your property, goals, and any specific needs or questions…"></textarea>
+      </div>
+      <button class="form-submit" onclick="handleSubmit(event)">Send My Request ✦</button>
+      <p class="form-note">We typically respond within a few hours. No spam, ever.</p>
+    </div>
+  </div>
+
+  <!-- MAP -->
+  <div class="map-wrap reveal">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3589.8!2d-80.2541!3d25.8721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s2840+NW+135th+St%2C+Opa-locka%2C+FL+33054!5e0!3m2!1sen!2sus!4v1"
+      allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="Elegance in Green 502 Location">
+    </iframe>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-main">Elegance in Green 502</div>
+        <div class="logo-sub">Landscaping Service INC</div>
+        <p>Bringing artistry, craftsmanship, and horticultural expertise to outdoor spaces across South Florida. Your vision, our expertise — extraordinary results.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Landscape Design</a></li>
+          <li><a href="#services">Lawn Care</a></li>
+          <li><a href="#services">Sod Installation</a></li>
+          <li><a href="#services">Drainage Solutions</a></li>
+          <li><a href="#services">Stone Masonry</a></li>
+          <li><a href="#services">Water Features</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Get a Quote</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:6452365545">(645) 236-5545</a></li>
+          <li>2840 NW 135th St</li>
+          <li>Opa-Locka, FL 33054</li>
+          <li style="margin-top:0.5rem;color:rgba(255,255,255,0.4);font-size:0.75rem;">Mon–Fri: Open 24 Hours</li>
+          <li style="color:rgba(255,255,255,0.4);font-size:0.75rem;">Sat: 12:30–2:30 AM</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 Elegance in Green 502 Landscaping Service INC. All rights reserved.</p>
+      <div class="footer-badge">✦ Licensed & Insured · South Florida</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════ -->
+<script>
+  /* ─── Navbar scroll ─── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* ─── Mobile nav ─── */
+  function toggleNav() {
+    const nav = document.getElementById('mobileNav');
+    nav.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  }
+
+  /* ─── Scroll reveal ─── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ─── Form submission ─── */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target;
+    btn.textContent = '✔ Request Sent! We\'ll Be In Touch';
+    btn.style.background = 'var(--moss)';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Send My Request ✦';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 4000);
+  }
+
+  /* ─── Smooth active nav highlighting ─── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? 'var(--gold-lt)' : '';
+    });
+  });
+</script>
+</body>
+</html>
